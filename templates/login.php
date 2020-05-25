@@ -6,21 +6,24 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once __DIR__ . "/../utils/Database.php";
 
-$database = new Database();
 
-$logged = false; // Flag se la procedura di login è andata a buon fine
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+if($_REQUEST['method'] == "POST"){
+    $database = new Database();
+    $logged = false; // Flag se la procedura di login è andata a buon fine
 
-$checkIssetUserWithPassword = $database->login($username, $password);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-if($checkIssetUserWithPassword){
-    $_SESSION['username'] = $username;
-} else {
-    //PAssword o username errati
-}
+    $checkIssetUserWithPassword = $database->login($username, $password);
+
+    if($checkIssetUserWithPassword){
+        $_SESSION['username'] = $username;
+    } else {
+        //PAssword o username errati
+    }
 //Controllo database
+}
 
 //Se sono entrato, reindirizza sulla homepage
 if($logged){
@@ -32,5 +35,5 @@ if($logged){
 
 
 <?php
-echo "Form Login";
+echo "Form html Login";
 ?>
