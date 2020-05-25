@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . "/../utils/Database.php";
+/*
+ require_once __DIR__ . "/../utils/Database.php";
 
 
 
@@ -25,7 +26,7 @@ if($logged){
     header("Location: index.php");
     exit;
 }
-
+*/
 ?>
 
 
